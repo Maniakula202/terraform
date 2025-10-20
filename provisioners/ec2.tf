@@ -9,6 +9,7 @@ resource "aws_instance" "terraform" {
 
     provisioner "local-exec" {
         command = "echo ${self.public_ip} > inventory"
+        on_failure = continue
     }
 
     provisioner "local-exec" {
